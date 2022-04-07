@@ -5,7 +5,7 @@ const layout = [
   'w' , 'w' , 'w' , 'w', 'w', 'w', 'w', 'w', 
   'w' , 'p' , 'p' , 'p', 'p', 'p', 'p', 'w', 
   'w' , 'p' , 'p' , 'p', 'p', 'p', 'p', 'w', 
-  'w' , 'w' , 'w' , 'w', 'w', 'w', 'w', 'w']
+  'w' , 'w' , 'w' , 'w', 'w', 'w', 'w', 'p']
 
 const map = []
 console.log(map)
