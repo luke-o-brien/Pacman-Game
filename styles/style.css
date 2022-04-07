@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+.pacman {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/49/Pacman.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.ghost {
+  background-image: url('http://assets.stickpng.com/images/580b57fcd9996e24bc43c316.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.game {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.grid-container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: space-around;
+  height: 400px;
+  width: 800px;
+}
+
+.wall {
+  border: 1px solid lightgrey;
+  flex-grow: 1;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(132, 0, 255);
+}
+
+.path {
+  border: 1px solid lightgrey;
+  flex-grow: 1;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(13, 255, 33);
+}
