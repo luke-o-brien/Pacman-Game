@@ -8,6 +8,7 @@ const layout = [
   'w' , 'p' , 'p' , 'p', 'p', 'p', 'p', 'w',
   'w' , 'p' , 'p' , 'p', 'p', 'p', 'p', 'w',
   'w' , 'w' , 'w' , 'w', 'w', 'w', 'w', 'w']
+  'w' , 'w' , 'w' , 'w', 'w', 'w', 'w', 'p']
 
 const map = []
 
