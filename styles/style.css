@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  overflow: visible;
 }
 
 body {
@@ -19,7 +20,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
-  transition: all 0.5s;
+  z-index: 1;
 }
 .game {
   height: 100vh;
@@ -44,7 +45,7 @@ body {
   flex-grow: 1;
   height: 100px;
   width: 100px;
-  background-color: rgb(132, 0, 255);
+  background-color: rgba(132, 0, 255, 0.081);
 }
 
 .path {
@@ -52,5 +53,17 @@ body {
   flex-grow: 1;
   height: 100px;
   width: 100px;
-  background-color: rgb(13, 255, 33);
+  background-color: rgba(0, 255, 21, 0.212);
+}
+
+.dots {
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  background-color: black;
+  margin: 0 auto;
+}
+
+.test {
+  background-color: red;
 }
