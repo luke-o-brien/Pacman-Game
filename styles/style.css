@@ -6,7 +6,7 @@
 
 body {
   height: 100vh;
-  margin: 0;
+  margin: 0 auto;
 }
 
 main {
@@ -16,44 +16,65 @@ main {
 /* Menu styling  */
 .start-menu {
   text-align: center;
+  margin: 0 auto;
+  height: 100vh;
+
 }
 .main-title {
   font-size: 150px;
   font-weight: 400px;
   font-family: 'Smooch Sans', sans-serif;
+  letter-spacing: 10px;
+  margin: 50px;
 }
 
-.play-button {
+button {
   font-size: 50px;
+  margin: 15px;
+  letter-spacing: 5px;
   font-family: 'Smooch Sans', sans-serif;
   font-weight: 400;
-  padding: 10px 30px;
+  padding: 25px 30px;
+  box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.1),
+  0px 1px 3px 1px rgba(0,0,0,0.1),
+  0px 1px 3px 1px rgba(0,0,0,0.1);
+  width: 50%;
+  border: none;
+  background-color: white;
+}
+
+img {
+  height: 100px;
+  display:block;
+  margin: auto;
+  background: transparent;
+
+}
+.play-button:hover {
+  background-color: #ff0000;
+  color: white;
+  cursor: pointer;
+}
+
+.how-to-play:hover {
+  background-color: #ff6600;
+  color: white;
+}
+
+.Leaderboard:hover {
+  background-color: #ff47ea;
+  color: white;
+}
+
+.github:hover {
+  background-color: #00ebcc;
+  color: white;
+  
 }
 
 /* Game Styling */
 
-.pacman {
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/49/Pacman.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-}
-
-.ghost {
-  background-image: url('https://e7.pngegg.com/pngimages/59/770/png-clipart-orange-pacman-ghost-illustration-pac-man-world-3-ms-pac-man-pac-man-games-pac-man-text-smiley.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-  z-index: 1;
-}
-
-.ghost-vulnerable {
-  background-image: url('https://e7.pngegg.com/pngimages/59/770/png-clipart-orange-pacman-ghost-illustration-pac-man-world-3-ms-pac-man-pac-man-games-pac-man-text-smiley.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-  z-index: 1;
-}
+/* Game map styling  */
 .game {
   height: 100vh;
   display: flex;
@@ -68,7 +89,7 @@ main {
   flex-wrap: wrap;
   height: 100vh;
   justify-content: space-around;
-  height: 600px;
+  height: 700px;
   width: 800px;
 }
 
@@ -89,6 +110,32 @@ main {
   z-index: 1;
 }
 
+/* Character Styling */
+
+.pacman {
+  height: 60px;
+  width: 60px;
+  border-radius: 60px;
+  background-color: rgb(255, 251, 0);
+  z-index: 2;
+  margin: 0 auto;
+}
+
+.ghost {
+  height: 50px;
+  width: 25px;
+  background-color: blue;
+  z-index: 2;
+  margin: 0 auto;
+}
+
+.ghost-vulnerable {
+  height: 50px;
+  width: 25px;
+  background-color: rgb(38, 255, 0);
+  z-index: 2;
+  margin: 0 auto;
+}
 .dots {
   height: 20px;
   width: 20px;
