@@ -1,5 +1,29 @@
-const grid = document.querySelector('.grid-container');
-const game = document.querySelector('.game')
+
+const start = document.querySelector('.start-menu')
+const main = document.querySelector('main')
+const startButton = document.querySelector('.play-button')
+
+
+
+startButton.addEventListener('click', () => {
+  console.log('start clicked')
+  main.innerHTML = ''
+  console.log(document)
+  createlayout()
+})
+
+
+function createlayout() {
+  const game = document.createElement("div");
+  game.classList = 'game'
+  main.appendChild(game)
+  const grid = document.createElement("div")
+  grid.classList = 'grid-container'
+  game.appendChild(grid)
+  createMap()
+}
+
+
 
 
 //Creation of map layout 
@@ -39,10 +63,12 @@ function deleteGhost() {
   map[ghostposition].classList.remove('ghost')
 }
 
-
+const game = document.querySelector('.game')
 // Map Creation Function 
 
 function createMap() {
+  const grid = document.querySelector('.grid-container');
+  
   for (let i = 0; i < layout.length ; i++) {
     const square = document.createElement("div");
     if (layout[i] === 'w') {
@@ -77,14 +103,10 @@ function createMap() {
   }
   spawnPacman()
   spawnGhost()
+  ghostMoves()
 }
-createMap()
-console.log(document)
-
-//Basic Pacman Movement Function 
 
 document.addEventListener('keydown', (e) => {
-  
   const key = e.code
   if (key === 'ArrowLeft' && map[pacmanPosition - 1].classList.contains('path')) {
     deletePacman(pacmanPosition)
@@ -106,7 +128,7 @@ document.addEventListener('keydown', (e) => {
   GhostKillsPacman()
   pacmanEats()
 })
-
+console.log(document)
 
 //Basic Randomized Ghost Movement
 
@@ -134,8 +156,6 @@ function ghostMoves() {
     GhostKillsPacman()
   }, 1000)
 }
-
-ghostMoves()
 
 //Pacman eats Dots 
 function pacmanEats() {
@@ -167,41 +187,21 @@ function pacmanEats() {
   console.log(dotArray)
 }
 
-// pacman can Kill Pacman 
-
-//function pacmanKillsGhosts() {
-  //map[ghostposition].classList.remove('ghost')
-  //map[ghostposition].classList.add('ghost-vulnerable')
-//}
-
-
 
 // ghost and pacman meet ending the game and displaying points and option to restart game 
 function GhostKillsPacman() {
   if (map[pacmanPosition] === map[ghostposition]) {
-    game.removeChild(grid)
-    game.classList.remove('game')
-    game.classList.add('game-over')
-    const results = document.createElement('p')
-    const finalPoints = document.createElement('p')
-    const replay = document.createElement('button')
-    results.innerHTML = 'game over'
-    finalPoints.innerHTML = points + ' points'
-    replay.innerHTML = 'click to replay'
-    replay.classList.add('replay-button')
-    game.appendChild(results)
-    game.appendChild(finalPoints)
-    game.appendChild(replay)
-    playAgain()
+    WinnerScreen()
   }
 }
 
 //Game is won 
 
 function WinnerScreen() {
-  game.removeChild(grid)
-  game.classList.remove('game')
-  game.classList.add('game-over')
+  main.innerHTML = ''
+  const gameOver = document.createElement("div");
+  main.appendChild(gameOver)
+  gameOver.classList.add('game-over')
   const results = document.createElement('p')
   results.innerHTML = 'You Win Congratulations!'
   results.classList.add('results')
@@ -214,37 +214,19 @@ function WinnerScreen() {
   const replay = document.createElement('button')
   replay.innerHTML = 'click to replay'
   replay.classList.add('replay-button')
-  
-  
-  game.appendChild(results)
-  game.appendChild(finalPoints)
-  game.appendChild(replay)
-  
-  playAgain()
-}
 
+  gameOver.appendChild(results)
+  gameOver.appendChild(finalPoints)
+  gameOver.appendChild(replay)
 
-//const grid = document.querySelector('.grid-container');
-//const game = document.querySelector('.game')
+  const replayButton = document.querySelector('.replay-button')
 
-//replay Game 
-function playAgain() {
-  const replay = document.querySelector('.replay-button')
-  replay.addEventListener('click', () => {
-    console.log('clicked')
-    const resultText = document.querySelector('.results')
-    const pointsText = document.querySelector('.final-points')
-    const replayButton = document.querySelector('.replay-button')
-    game.removeChild(resultText)
-    game.removeChild(pointsText)
-    game.removeChild(replayButton)
-    game.classList.remove('game-over')
-    game.classList.add('game')
-    const grid = document.createElement('div')
-    grid.classList = 'grid-container'
-    game.appendChild(grid)
-    createMap()
-    
+  replayButton.addEventListener('click', () => {
+    console.log('replay clicked')
+    main.innerHTML = ''
     console.log(document)
-  })
+    createlayout()
+
+
+})
 }
