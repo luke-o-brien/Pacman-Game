@@ -27,21 +27,38 @@ function createlayout() {
 //Creation of map layout 
 
 const layout = [
-  'w' , 'w' , 'w' , 'w', 'w', 'w', 'w', 'w', 
-  'w' , 'p' , 'p' , 'p', 'p', 'p', 'p', 'w', 
-  'w' , 'p' , 'p' , 'p', 'p', 'p', 'p', 'w', 
-  'w' , 'p' , 'p' , 'p', 'p', 'p', 'p', 'w',
-  'w' , 'p' , 'p' , 'p', 'p', 'p', 'p', 'w',
-  'w' , 'p' , 'p' , 'p', 'p', 'p', 'P', 'w',
-  'w' , 'w' , 'w' , 'w', 'w', 'w', 'w', 'w']
-  'w' , 'w' , 'w' , 'w', 'w', 'w', 'w', 'p']
+
+  'w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w',
+  'w','p','p','p','p','p','p','p','p','w','p','p','p','p','p','p','p','p','w','w',
+  'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w','w',
+  'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w','w',
+  'w','p','p','p','P','p','p','p','p','p','p','p','p','p','p','p','p','p','w','w',
+  'w','p','w','w','p','w','p','w','w','w','w','w','p','w','p','w','w','p','w','w',
+  'w','p','p','p','p','w','p','p','p','w','p','p','p','w','p','p','p','p','w','w',
+  'w','w','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','w','w','w',
+  'w','w','w','w','p','w','o','o','o','o','o','o','o','w','p','w','w','w','w','w',
+  'o','o','o','o','p','o','o','w','w','o','w','w','o','w','p','w','w','w','w','w',
+  'w','w','w','w','p','w','o','w','o','o','o','w','o','o','p','o','o','o','o','o',
+  'w','w','w','w','p','w','o','w','o','o','o','w','o','o','p','o','o','o','o','o',
+  'o','o','o','o','p','o','o','w','w','w','w','w','o','w','p','w','w','w','w','w',
+  'w','w','w','w','p','w','o','o','o','o','o','o','o','w','p','w','w','w','w','w',
+  'w','w','w','w','p','w','p','w','w','w','w','w','p','w','p','w','w','w','w','w',
+  'w','p','p','p','p','p','p','p','p','w','p','p','p','p','p','p','p','p','w','w',
+  'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w','w',
+  'w','p','p','w','p','p','p','p','p','p','p','p','p','p','p','w','p','p','w','w',
+  'w','w','p','w','p','w','p','w','w','w','w','w','p','w','p','w','p','w','w','w',
+  'w','p','p','p','p','w','p','p','p','w','p','p','p','w','p','p','p','p','w','w',
+  'w','p','w','w','w','w','w','w','p','w','p','w','w','w','w','w','w','p','w','w',
+  'w','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','w','w',
+  'w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w']
 
 const map = []
+const mapWidth = 20
 const dotArray = []
 
 //Initial position of characters
-let pacmanPosition = 27;
-let ghostposition = 11;
+let pacmanPosition = 235;
+let ghostposition = 230;
 let points = 0;
 let highScore = 0
 let ghostVulnerable = false
@@ -118,6 +135,13 @@ function createMap() {
       dots.classList = 'big-dot'
       square.appendChild(dots)
       dotArray.push(dots)
+    } else if (layout[i] === 'o') {
+      square.classList = 'path'
+      square.innerHTML = i 
+      square.id = i 
+      grid.appendChild(square)
+      map.push(square)
+
     }
   }
   spawnPacman()
@@ -135,13 +159,13 @@ document.addEventListener('keydown', (e) => {
     deletePacman(pacmanPosition)
     pacmanPosition += 1
     spawnPacman(pacmanPosition)
-  } else if (key === 'ArrowDown' && map[pacmanPosition + 8].classList.contains('path')) {
+  } else if (key === 'ArrowDown' && map[pacmanPosition + mapWidth].classList.contains('path')) {
     deletePacman(pacmanPosition)
-    pacmanPosition += 8
+    pacmanPosition += mapWidth
     spawnPacman(pacmanPosition)
-  } else if (key === 'ArrowUp' && map[pacmanPosition - 8].classList.contains('path')) {
+  } else if (key === 'ArrowUp' && map[pacmanPosition - mapWidth].classList.contains('path')) {
     deletePacman(pacmanPosition)
-    pacmanPosition -= 8
+    pacmanPosition -= mapWidth
     spawnPacman(pacmanPosition)
   }
   GhostKillsPacman()
@@ -159,21 +183,21 @@ function ghostMoves() {
       deleteGhost(ghostposition)
       ghostposition += 1 
       spawnGhost(ghostposition)
-    } else if ( ghostChoice === 'down' && map[ghostposition + 8].classList.contains('path')) {
+    } else if ( ghostChoice === 'down' && map[ghostposition + mapWidth].classList.contains('path')) {
       deleteGhost(ghostposition)
-      ghostposition += 8
+      ghostposition += mapWidth
       spawnGhost(ghostposition)
     } else if ( ghostChoice === 'left' && map[ghostposition - 1].classList.contains('path')) {
       deleteGhost(ghostposition)
       ghostposition -= 1
       spawnGhost(ghostposition)
-    } else if ( ghostChoice === 'up' && map[ghostposition - 8].classList.contains('path')) {
+    } else if ( ghostChoice === 'up' && map[ghostposition - mapWidth].classList.contains('path')) {
       deleteGhost(ghostposition)
-      ghostposition -= 8
+      ghostposition -= mapWidth
       spawnGhost(ghostposition)
     }
     GhostKillsPacman()
-  }, 1000)
+  }, 500)
 }
 
 //Pacman eats Dots 
@@ -256,7 +280,7 @@ function GhostKillsPacman() {
     
   } else if (map[pacmanPosition] === map[ghostposition] && ghostVulnerable === true) {
     deleteGhost(ghostposition)
-    ghostposition = 11
+    ghostposition = 230
     spawnGhost(ghostposition)
   }
 }
@@ -298,8 +322,9 @@ function WinnerScreen() {
   })
 }
 
-// CODE FOR OTHER MENUS 
+//  C O D E    F O R    O T H E R    M E N U    P A G E S //
 
+//code to generate how to play plage
 howToplay.addEventListener('click', () => {
   console.log('how to play clicked')
   main.innerHTML = ''
