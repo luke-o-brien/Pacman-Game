@@ -27,6 +27,7 @@ function createlayout() {
 //Creation of map layout 
 
 const layout = [
+
   'w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w',
   'w','p','p','p','p','p','p','p','p','w','p','p','p','p','p','p','p','p','w','w',
   'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w','w',
@@ -49,8 +50,7 @@ const layout = [
   'w','p','p','p','p','w','p','p','p','w','p','p','p','w','p','p','p','p','w','w',
   'w','p','w','w','w','w','w','w','p','w','p','w','w','w','w','w','w','p','w','w',
   'w','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','w','w',
-  'w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w'
-]
+  'w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w']
 
 const map = []
 const mapWidth = 20
