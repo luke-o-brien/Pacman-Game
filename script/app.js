@@ -31,7 +31,7 @@ const layout = [
   'w','p','p','p','p','p','p','p','p','w','p','p','p','p','p','p','p','p','w','w',
   'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w','w',
   'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w','w',
-  'w','p','p','p','P','p','p','p','p','p','p','p','p','p','p','p','p','p','w','w',
+  'w','p','p','p','P','P','P','p','p','p','p','p','p','p','p','p','p','p','w','w',
   'w','p','w','w','p','w','p','w','w','w','w','w','p','w','p','w','w','p','w','w',
   'w','p','p','p','p','w','p','p','p','w','p','p','p','w','p','p','p','p','w','w',
   'w','w','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','w','w','w',
@@ -57,8 +57,8 @@ const mapWidth = 20
 const dotArray = []
 
 //Initial position of characters
-let pacmanPosition = 235;
-let ghostposition = 230;
+let pacmanPosition = 349;
+let ghostposition = 169;
 let points = 0;
 let highScore = 0
 let ghostVulnerable = false
@@ -100,6 +100,8 @@ function deleteGhost() {
 }
 
 const game = document.querySelector('.game')
+
+
 // Map Creation Function 
 
 function createMap() {
@@ -113,41 +115,33 @@ function createMap() {
       square.id = i
       grid.appendChild(square)
       map.push(square)
-    } else if (layout[i] === 'p') {
+    } else if (layout[i] === 'p' || layout[i] === 'P' || layout[i] === 'o') {
       square.classList = 'path'
       square.innerHTML = i
       square.id = i
       grid.appendChild(square)
       map.push(square)
-      const dots = document.createElement('div')
-      dots.id = 'dot'
-      dots.classList = 'dots'
-      square.appendChild(dots)
-      dotArray.push(dots)
-    } else if (layout[i] === 'P') {
-      square.classList = 'path'
-      square.innerHTML = i
-      square.id = i
-      grid.appendChild(square)
-      map.push(square)
-      const dots = document.createElement('div')
-      dots.id = 'big-dot'
-      dots.classList = 'big-dot'
-      square.appendChild(dots)
-      dotArray.push(dots)
-    } else if (layout[i] === 'o') {
-      square.classList = 'path'
-      square.innerHTML = i 
-      square.id = i 
-      grid.appendChild(square)
-      map.push(square)
-
+      if (layout[i] === 'p') {
+        const dots = document.createElement('div')
+        dots.id = 'dot'
+        dots.classList = 'dots'
+        square.appendChild(dots)
+        dotArray.push(dots)
+      } else if (layout[i] === 'P') {
+        const dots = document.createElement('div')
+        dots.id = 'big-dot'
+        dots.classList = 'big-dot'
+        square.appendChild(dots)
+        dotArray.push(dots)
+      } 
     }
   }
   spawnPacman()
   spawnGhost()
   ghostMoves()
 }
+
+// Pacman Keypress Movement function 
 
 document.addEventListener('keydown', (e) => {
   const key = e.code
@@ -201,6 +195,7 @@ function ghostMoves() {
 }
 
 //Pacman eats Dots 
+
 function pacmanEats() {
   const active = document.getElementById(pacmanPosition)
   
@@ -215,7 +210,7 @@ function pacmanEats() {
       WinnerScreen()
     }
   } else if (map[pacmanPosition].children[0].id === 'big-dot') {
-    const bigdots = document.querySelector('.big-dot')
+    const bigdots = active.querySelector('.big-dot')
     const bigDotIndex = dotArray.indexOf(bigdots)
     active.removeChild(bigdots)
     points += 15
@@ -288,6 +283,7 @@ function GhostKillsPacman() {
 //Game is won 
 
 function WinnerScreen() {
+  pacmanPosition = 349
   main.innerHTML = ''
   const gameOver = document.createElement("div");
   main.appendChild(gameOver)
@@ -314,11 +310,7 @@ function WinnerScreen() {
 
   replayButton.addEventListener('click', () => {
     console.log('replay clicked')
-
-    main.innerHTML = ''
-    
-    console.log(document)
-    createlayout()
+    window.document.reload()
   })
 }
 
