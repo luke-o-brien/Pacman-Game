@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   overflow: hidden;
+  text-align: center;
 }
 
 
@@ -41,31 +42,155 @@ button {
   width: 50%;
   border: none;
   background-color: white;
+  cursor: pointer;
+}
+
+.menu-images {
+  display: flex;
+  justify-content: center;
+}
+img {
+  height: 100px;
+  display: flex;
+  margin: 10px 50px;
 }
 
 
 
 .play-button:hover {
-  background-color: #ff0000;
+  background-color: #f44236;
   color: white;
-  cursor: pointer;
 }
 
 .how-to-play:hover {
-  background-color: #ff6600;
+  background-color: #fcb949;
   color: white;
 }
 
-.Leaderboard:hover {
-  background-color: #ff47ea;
+.leaderboard:hover {
+  background-color: #ff0066;
   color: white;
 }
 
 .github:hover {
-  background-color: #00ebcc;
+  background-color: #70cac4;
   color: white;
   
 }
+
+@media screen and (max-height: 900px) {
+  button{
+    font-size: 40px;
+  }
+
+  .main-title {
+    font-size: 80px;
+    margin: 10px;
+  }
+
+  img {
+    height: 80px;
+    margin: 0px 20px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  body {
+    background-color: rgb(213, 230, 173);
+  }
+
+  button {
+    font-size: 40px;
+    letter-spacing: 5px;
+  }
+
+  .main-title {
+    font-size: 70px;
+    letter-spacing: 5px;
+  }
+  img {
+    height: 50px;
+    display: flex;
+    margin: 10px 0px;
+  }
+
+}
+
+@media only screen and (max-width: 500px) {
+  body {
+    background-color: rgb(188, 173, 230);
+  }
+
+  button {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .main-title {
+    font-size: 70px;
+    letter-spacing: 5px;
+  }
+  img {
+    height: 20px;
+    display: flex;
+    margin: 5px 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Game Styling */
 
@@ -82,9 +207,8 @@ button {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  height: 100vh;
   justify-content: space-around;
-  height: 98vh;
+  height: 805px;
   width: 800px
 }
 
@@ -180,4 +304,11 @@ p {
 
 .finalpoints {
   color: rgb(0, 0, 0);
+}
+
+
+/* how to play page styling */
+
+.htp-h2 {
+  font-size: 50px
 }

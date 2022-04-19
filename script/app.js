@@ -3,6 +3,7 @@ const start = document.querySelector('.start-menu')
 const main = document.querySelector('main')
 const startButton = document.querySelector('.play-button')
 const howToplay = document.querySelector('.how-to-play')
+const leaderboardButton = document.querySelector('.leaderboard')
 
 
 startButton.addEventListener('click', () => {
@@ -62,6 +63,8 @@ let ghostposition = 169;
 let points = 0;
 let highScore = 0
 let ghostVulnerable = false
+let gameLive = false
+console.log(gameLive)
 
 
 //Pacman Spawn and Delete Functions 
@@ -106,7 +109,7 @@ const game = document.querySelector('.game')
 
 function createMap() {
   const grid = document.querySelector('.grid-container');
-  
+  points = 0
   for (let i = 0; i < layout.length ; i++) {
     const square = document.createElement("div");
     if (layout[i] === 'w') {
@@ -240,6 +243,8 @@ function vulnerableGhosts() {
 // ghost and pacman meet ending the game and displaying points and option to restart game 
 function GhostKillsPacman() {
   if (map[pacmanPosition] === map[ghostposition] && ghostVulnerable === false) {
+    pacmanPosition = 349
+  
     main.innerHTML = ''
     const gameOver = document.createElement("div");
     main.appendChild(gameOver)
@@ -310,21 +315,40 @@ function WinnerScreen() {
 
   replayButton.addEventListener('click', () => {
     console.log('replay clicked')
-    window.document.reload()
   })
 }
 
 //  C O D E    F O R    O T H E R    M E N U    P A G E S //
 
+
+
+//code for LeaderBoard 
+
+leaderboardButton.addEventListener('click', () => {
+  console.log('view leaderboard')
+})
+
 //code to generate how to play plage
 howToplay.addEventListener('click', () => {
-  console.log('how to play clicked')
+  //console.log('how to play clicked')
+  //window.location.href = 'How-to-play.html'
   main.innerHTML = ''
   const htpPage = document.createElement("div");
   htpPage.classList = 'htp-page'
   main.appendChild(htpPage)
-  const title = document.createElement("h2")
-  title.classList = 'htp-h2'
-  title.innerHTML = 'How to Play'
-  htpPage.appendChild(title)
+  htpPage.innerHTML = `
+  <h2>How to Play</h2>
+  <h3>Pacman the Basics</h3>
+  <p></p>
+  <h3>controls</h3>
+  <p> Its simple, which ever direction you want pacman to move click the corrosponding arrow key on your keyboard</p>
+  <ul>
+  <li>Move up = Up arrow Key<li>
+  <li>Move down = down arrow Key<li>
+  <li>Move left = left arrow Key<li>
+  <li>Move right = right arrow Key<li>
+  <h3>points and more rules</h3>
+  <p>you get points when pacman eats the yellow food pellets which are on the</p>
+  <button>return to home</button>
+  `
 })
