@@ -3,6 +3,7 @@ const start = document.querySelector('.start-menu')
 const main = document.querySelector('main')
 const startButton = document.querySelector('.play-button')
 const howToplay = document.querySelector('.how-to-play')
+const leaderboardButton = document.querySelector('.leaderboard')
 
 
 startButton.addEventListener('click', () => {
@@ -32,7 +33,7 @@ const layout = [
   'w','p','p','p','p','p','p','p','p','w','p','p','p','p','p','p','p','p','w','w',
   'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w','w',
   'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w','w',
-  'w','p','p','p','P','p','p','p','p','p','p','p','p','p','p','p','p','p','w','w',
+  'w','p','p','p','P','P','P','p','p','p','p','p','p','p','p','p','p','p','w','w',
   'w','p','w','w','p','w','p','w','w','w','w','w','p','w','p','w','w','p','w','w',
   'w','p','p','p','p','w','p','p','p','w','p','p','p','w','p','p','p','p','w','w',
   'w','w','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','w','w','w',
@@ -57,11 +58,13 @@ const mapWidth = 20
 const dotArray = []
 
 //Initial position of characters
-let pacmanPosition = 235;
-let ghostposition = 230;
+let pacmanPosition = 349;
+let ghostposition = 169;
 let points = 0;
 let highScore = 0
 let ghostVulnerable = false
+let gameLive = false
+console.log(gameLive)
 
 
 //Pacman Spawn and Delete Functions 
@@ -100,11 +103,13 @@ function deleteGhost() {
 }
 
 const game = document.querySelector('.game')
+
+
 // Map Creation Function 
 
 function createMap() {
   const grid = document.querySelector('.grid-container');
-  
+  points = 0
   for (let i = 0; i < layout.length ; i++) {
     const square = document.createElement("div");
     if (layout[i] === 'w') {
@@ -113,41 +118,33 @@ function createMap() {
       square.id = i
       grid.appendChild(square)
       map.push(square)
-    } else if (layout[i] === 'p') {
+    } else if (layout[i] === 'p' || layout[i] === 'P' || layout[i] === 'o') {
       square.classList = 'path'
       square.innerHTML = i
       square.id = i
       grid.appendChild(square)
       map.push(square)
-      const dots = document.createElement('div')
-      dots.id = 'dot'
-      dots.classList = 'dots'
-      square.appendChild(dots)
-      dotArray.push(dots)
-    } else if (layout[i] === 'P') {
-      square.classList = 'path'
-      square.innerHTML = i
-      square.id = i
-      grid.appendChild(square)
-      map.push(square)
-      const dots = document.createElement('div')
-      dots.id = 'big-dot'
-      dots.classList = 'big-dot'
-      square.appendChild(dots)
-      dotArray.push(dots)
-    } else if (layout[i] === 'o') {
-      square.classList = 'path'
-      square.innerHTML = i 
-      square.id = i 
-      grid.appendChild(square)
-      map.push(square)
-
+      if (layout[i] === 'p') {
+        const dots = document.createElement('div')
+        dots.id = 'dot'
+        dots.classList = 'dots'
+        square.appendChild(dots)
+        dotArray.push(dots)
+      } else if (layout[i] === 'P') {
+        const dots = document.createElement('div')
+        dots.id = 'big-dot'
+        dots.classList = 'big-dot'
+        square.appendChild(dots)
+        dotArray.push(dots)
+      } 
     }
   }
   spawnPacman()
   spawnGhost()
   ghostMoves()
 }
+
+// Pacman Keypress Movement function 
 
 document.addEventListener('keydown', (e) => {
   const key = e.code
@@ -201,6 +198,7 @@ function ghostMoves() {
 }
 
 //Pacman eats Dots 
+
 function pacmanEats() {
   const active = document.getElementById(pacmanPosition)
   
@@ -215,7 +213,7 @@ function pacmanEats() {
       WinnerScreen()
     }
   } else if (map[pacmanPosition].children[0].id === 'big-dot') {
-    const bigdots = document.querySelector('.big-dot')
+    const bigdots = active.querySelector('.big-dot')
     const bigDotIndex = dotArray.indexOf(bigdots)
     active.removeChild(bigdots)
     points += 15
@@ -245,6 +243,8 @@ function vulnerableGhosts() {
 // ghost and pacman meet ending the game and displaying points and option to restart game 
 function GhostKillsPacman() {
   if (map[pacmanPosition] === map[ghostposition] && ghostVulnerable === false) {
+    pacmanPosition = 349
+  
     main.innerHTML = ''
     const gameOver = document.createElement("div");
     main.appendChild(gameOver)
@@ -288,6 +288,7 @@ function GhostKillsPacman() {
 //Game is won 
 
 function WinnerScreen() {
+  pacmanPosition = 349
   main.innerHTML = ''
   const gameOver = document.createElement("div");
   main.appendChild(gameOver)
@@ -314,25 +315,40 @@ function WinnerScreen() {
 
   replayButton.addEventListener('click', () => {
     console.log('replay clicked')
-
-    main.innerHTML = ''
-    
-    console.log(document)
-    createlayout()
   })
 }
 
 //  C O D E    F O R    O T H E R    M E N U    P A G E S //
 
+
+
+//code for LeaderBoard 
+
+leaderboardButton.addEventListener('click', () => {
+  console.log('view leaderboard')
+})
+
 //code to generate how to play plage
 howToplay.addEventListener('click', () => {
-  console.log('how to play clicked')
+  //console.log('how to play clicked')
+  //window.location.href = 'How-to-play.html'
   main.innerHTML = ''
   const htpPage = document.createElement("div");
   htpPage.classList = 'htp-page'
   main.appendChild(htpPage)
-  const title = document.createElement("h2")
-  title.classList = 'htp-h2'
-  title.innerHTML = 'How to Play'
-  htpPage.appendChild(title)
+  htpPage.innerHTML = `
+  <h2>How to Play</h2>
+  <h3>Pacman the Basics</h3>
+  <p></p>
+  <h3>controls</h3>
+  <p> Its simple, which ever direction you want pacman to move click the corrosponding arrow key on your keyboard</p>
+  <ul>
+  <li>Move up = Up arrow Key<li>
+  <li>Move down = down arrow Key<li>
+  <li>Move left = left arrow Key<li>
+  <li>Move right = right arrow Key<li>
+  <h3>points and more rules</h3>
+  <p>you get points when pacman eats the yellow food pellets which are on the</p>
+  <button>return to home</button>
+  `
 })
