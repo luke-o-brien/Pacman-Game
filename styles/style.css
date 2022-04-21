@@ -2,6 +2,7 @@
   box-sizing: border-box;
   overflow: hidden;
   text-align: center;
+  font-family: 'Smooch Sans', sans-serif;
 }
 
 
@@ -19,7 +20,13 @@ main {
   text-align: center;
   margin: 0 auto;
   height: 100vh;
+  animation: startmenufade 3s;
+  animation-iteration-count: 1;
+}
 
+@keyframes startmenufade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 .main-title {
   font-size: 100px;
@@ -33,7 +40,6 @@ button {
   font-size: 50px;
   margin: 15px;
   letter-spacing: 5px;
-  font-family: 'Smooch Sans', sans-serif;
   font-weight: 400;
   padding: 25px 30px;
   box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.1),
@@ -59,6 +65,9 @@ img {
 
 .play-button:hover {
   background-color: #f44236;
+  box-shadow: 0px 1px 3px 1px rgba(255, 0, 0, 0.1),
+  0px 1px 3px 1px rgba(255, 0, 0, 0.1),
+  0px 1px 3px 1px rgba(255, 0, 0, 0.1);
   color: white;
 }
 
@@ -79,7 +88,8 @@ img {
 }
 
 @media screen and (max-height: 900px) {
-  button{
+
+  button  {
     font-size: 40px;
   }
 
@@ -94,9 +104,6 @@ img {
   }
 }
 @media screen and (max-width: 1000px) {
-  body {
-    background-color: rgb(213, 230, 173);
-  }
 
   button {
     font-size: 40px;
@@ -116,9 +123,6 @@ img {
 }
 
 @media only screen and (max-width: 500px) {
-  body {
-    background-color: rgb(188, 173, 230);
-  }
 
   button {
     font-size: 20px;
@@ -143,55 +147,6 @@ img {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Game Styling */
 
 /* Game map styling  */
@@ -208,8 +163,8 @@ img {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  height: 805px;
-  width: 800px
+  height: 845px;
+  width: 760px
 }
 
 .wall {
@@ -276,6 +231,105 @@ img {
   z-index: 0;
 }
 
+@media screen and (max-width: 900px) {
+  
+  
+  .grid-container {
+    height: 690px;
+    width: 600px
+  }
+  
+  .wall {
+    height: 30px;
+    width: 30px;
+  }
+  
+  .path {
+    height: 30px;
+    width: 30px;
+  }
+
+  .pacman {
+    height: 15px;
+    width: 15px;
+    border-radius: 15px;
+  }
+  
+  .ghost {
+    height: 20px;
+    width: 20px;
+  }
+  
+  .ghost-vulnerable {
+    height: 20px;
+    width: 20px;
+  }
+  .dots {
+    height: 8px;
+    width: 8px;
+    border-radius: 8px;
+
+  }
+  
+  .big-dot {
+    height: 15px;
+    width: 15px;
+    border-radius: 15px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .grid-container {
+    height: 575px;
+    width: 500px
+  }
+  
+  .wall {
+    height: 25px;
+    width: 25px;
+  }
+  
+  .path {
+    height: 25px;
+    width: 25px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .grid-container {
+    height: 460px;
+    width: 400px
+  }
+  
+  .wall {
+    height: 20px;
+    width: 20px;
+  }
+  
+  .path {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .grid-container {
+    height: 345px;
+    width: 300px
+  }
+  
+  .wall {
+    height: 15px;
+    width: 15px;
+  }
+  
+  .path {
+    height: 15px;
+    width: 15px;
+  }
+}
+
+/* Game won/lost styling  */
 .game-over {
   font-size: 80px;
   background-color: rgb(255, 255, 255);
@@ -311,4 +365,8 @@ p {
 
 .htp-h2 {
   font-size: 50px
+}
+
+.return-home {
+  color: #fcb949;
 }
