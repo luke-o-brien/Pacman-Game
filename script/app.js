@@ -28,6 +28,7 @@ function createlayout() {
 // C r e a t i o n   o f   m a p   l a y o u t 
 
 const layout = [
+
   'w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w',
   'w','p','p','p','p','p','p','p','p','w','p','p','p','p','p','p','p','p','w',
   'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w',
