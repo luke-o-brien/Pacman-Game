@@ -1,5 +1,5 @@
+//! G A M E   C O D E   
 
-const start = document.querySelector('.start-menu')
 const main = document.querySelector('main')
 const startButton = document.querySelector('.play-button')
 const howToplay = document.querySelector('.how-to-play')
@@ -25,43 +25,44 @@ function createlayout() {
 }
 
 
-//Creation of map layout 
+// C r e a t i o n   o f   m a p   l a y o u t 
 
 const layout = [
-  'w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w',
-  'w','p','p','p','p','p','p','p','p','w','p','p','p','p','p','p','p','p','w','w',
-  'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w','w',
-  'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w','w',
-  'w','p','p','p','P','P','P','p','p','p','p','p','p','p','p','p','p','p','w','w',
-  'w','p','w','w','p','w','p','w','w','w','w','w','p','w','p','w','w','p','w','w',
-  'w','p','p','p','p','w','p','p','p','w','p','p','p','w','p','p','p','p','w','w',
-  'w','w','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','w','w','w',
-  'w','w','w','w','p','w','o','o','o','o','o','o','o','w','p','w','w','w','w','w',
-  'o','o','o','o','p','o','o','w','w','o','w','w','o','w','p','w','w','w','w','w',
-  'w','w','w','w','p','w','o','w','o','o','o','w','o','o','p','o','o','o','o','o',
-  'w','w','w','w','p','w','o','w','o','o','o','w','o','o','p','o','o','o','o','o',
-  'o','o','o','o','p','o','o','w','w','w','w','w','o','w','p','w','w','w','w','w',
-  'w','w','w','w','p','w','o','o','o','o','o','o','o','w','p','w','w','w','w','w',
-  'w','w','w','w','p','w','p','w','w','w','w','w','p','w','p','w','w','w','w','w',
-  'w','p','p','p','p','p','p','p','p','w','p','p','p','p','p','p','p','p','w','w',
-  'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w','w',
-  'w','p','p','w','p','p','p','p','p','p','p','p','p','p','p','w','p','p','w','w',
-  'w','w','p','w','p','w','p','w','w','w','w','w','p','w','p','w','p','w','w','w',
-  'w','p','p','p','p','w','p','p','p','w','p','p','p','w','p','p','p','p','w','w',
-  'w','p','w','w','w','w','w','w','p','w','p','w','w','w','w','w','w','p','w','w',
-  'w','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','w','w',
-  'w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w'
+  'w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w',
+  'w','p','p','p','p','p','p','p','p','w','p','p','p','p','p','p','p','p','w',
+  'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w',
+  'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w',
+  'w','p','p','p','p','p','p','p','P','P','P','p','p','p','p','p','p','p','w',
+  'w','p','w','w','p','w','p','w','w','w','w','w','p','w','p','w','w','p','w',
+  'w','p','p','p','p','w','p','p','p','w','p','p','p','w','p','p','p','p','w',
+  'w','w','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','w','w',
+  'w','w','w','w','p','w','p','p','p','p','p','p','p','w','p','w','w','w','w',
+  'o','o','o','o','p','p','p','w','w','o','w','w','p','p','p','o','o','o','o',
+  'w','w','w','w','p','w','p','w','o','o','o','w','p','w','p','w','w','w','w',
+  'o','o','o','o','p','p','p','w','o','o','o','w','p','p','p','o','o','o','o',
+  'w','w','w','w','p','w','o','w','w','w','w','w','p','w','p','w','w','w','w',
+  'w','w','w','w','p','w','p','p','p','p','p','p','p','w','p','w','w','w','w',
+  'w','w','w','w','p','w','p','w','w','w','w','w','p','w','p','w','w','w','w',
+  'w','p','p','p','p','p','p','p','p','w','p','p','p','p','p','p','p','p','w',
+  'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w',
+  'w','p','p','w','p','p','p','p','p','p','p','p','p','p','p','w','p','p','w',
+  'w','w','p','w','p','w','p','w','w','w','w','w','p','w','p','w','p','w','w',
+  'w','p','p','p','p','w','p','p','p','w','p','p','p','w','p','p','p','p','w',
+  'w','p','w','w','w','w','w','w','p','w','p','w','w','w','w','w','w','p','w',
+  'w','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','w',
+  'w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w'
+  
 ]
 
 const map = []
-const mapWidth = 20
+const mapWidth = 19
 const dotArray = []
 
 //Initial position of characters
 let pacmanPosition = 349;
 let ghostposition = 169;
 let points = 0;
-let highScore = 0
+let totalPoints = 0
 let ghostVulnerable = false
 let gameLive = false
 console.log(gameLive)
@@ -102,8 +103,6 @@ function deleteGhost() {
   deleteGhostSquare.removeChild(ghostremoval)
 }
 
-const game = document.querySelector('.game')
-
 
 // Map Creation Function 
 
@@ -139,6 +138,9 @@ function createMap() {
       } 
     }
   }
+  const pointdisplay = document.createElement('p')
+  grid.appendChild(pointdisplay)
+  pointdisplay.innerHTML = points + ' points'
   spawnPacman()
   spawnGhost()
   ghostMoves()
@@ -207,6 +209,8 @@ function pacmanEats() {
     const dotIndex = dotArray.indexOf(dot)
     active.removeChild(dot)
     points += 10
+    const pointsDisplayLive = document.querySelector('p')
+    pointsDisplayLive.innerHTML = points + ' points'
     dotArray.splice(dotIndex, 1)
     if (dotArray.length === 0) {
       console.log('you have won')
@@ -233,7 +237,7 @@ function pacmanEats() {
 function vulnerableGhosts() {
   ghostVulnerable = true 
   
-  const timeout = setTimeout(resetVulstatus, 5000);
+  const timeout = setTimeout(resetVulstatus, 10000);
 
   function resetVulstatus() {
     ghostVulnerable = false
@@ -244,6 +248,8 @@ function vulnerableGhosts() {
 function GhostKillsPacman() {
   if (map[pacmanPosition] === map[ghostposition] && ghostVulnerable === false) {
     pacmanPosition = 349
+    totalPoints = points
+    console.log(totalPoints)
   
     main.innerHTML = ''
     const gameOver = document.createElement("div");
@@ -277,6 +283,7 @@ function GhostKillsPacman() {
       console.log(document)
       createlayout()
     })
+    collectScores()
     
   } else if (map[pacmanPosition] === map[ghostposition] && ghostVulnerable === true) {
     deleteGhost(ghostposition)
@@ -289,10 +296,12 @@ function GhostKillsPacman() {
 
 function WinnerScreen() {
   pacmanPosition = 349
+  totalPoints = points
   main.innerHTML = ''
   const gameOver = document.createElement("div");
   main.appendChild(gameOver)
   gameOver.classList.add('game-over')
+  
   const results = document.createElement('p')
   results.innerHTML = 'You Win Congratulations!'
   results.classList.add('results')
@@ -310,19 +319,57 @@ function WinnerScreen() {
   gameOver.appendChild(finalPoints)
   gameOver.appendChild(replay)
 
-
   const replayButton = document.querySelector('.replay-button')
 
   replayButton.addEventListener('click', () => {
     console.log('replay clicked')
   })
+  collectScores()
 }
 
-//  C O D E    F O R    O T H E R    M E N U    P A G E S //
+const playerScore = JSON.parse(localStorage.getItem('scores')) || [] 
+
+function collectScores() {
+  
+
+  const playerName = prompt('Enter Your Name ')
+  const yourScore = Number(totalPoints)
+  const leaderBoardContent = { name: playerName, score: yourScore }
+  playerScore.push(leaderBoardContent)
+  localStorage.setItem('scores', JSON.stringify(playerScore))
+}
+
+function displayScore() {
+  const scoresList = document.querySelector('ol')
+  const array = playerScore
+    .sort((playerA, playerB) => playerB.score - playerA.score)
+    .map(player => {
+      return `<li>
+        ${player.name} ${player.score} Points
+      </li>`
+    })
+  scoresList.innerHTML = array.join('')
+}
 
 
+//! C O D E    F O R    O T H E R    M E N U    P A G E S //
 
-//code for LeaderBoard 
+//code to generate Leaderboard
+
+leaderboardButton.addEventListener('click', () => {
+  main.innerHTML = ''
+  main.innerHTML = `
+  <div class="leaderboard-page">
+      <h2>Leaderboard</h2>
+      <div class=Leaderboard>
+      <ol></ol>
+      </div>
+    <button>return to home</button>
+  </div>`
+  displayScore()
+})
+
+// c o d e    f o r   L e a d e r B o a r d 
 
 leaderboardButton.addEventListener('click', () => {
   console.log('view leaderboard')
@@ -344,11 +391,20 @@ howToplay.addEventListener('click', () => {
   <p> Its simple, which ever direction you want pacman to move click the corrosponding arrow key on your keyboard</p>
   <ul>
   <li>Move up = Up arrow Key<li>
-  <li>Move down = down arrow Key<li>
-  <li>Move left = left arrow Key<li>
-  <li>Move right = right arrow Key<li>
+  <li>Move down = down arrow Key</li>
+  <li>Move left = left arrow Key</li>
+  <li>Move right = right arrow Key</li>
+  </ul>
   <h3>points and more rules</h3>
   <p>you get points when pacman eats the yellow food pellets which are on the</p>
-  <button>return to home</button>
+  <button id="return-home"> return to home </button>
   `
+  console.log(document)
+
+  const returnHomeButton = document.querySelector('#return-home')
+
+  returnHomeButton.addEventListener('click', () => {
+    location.reload()
+  })
 })
+
