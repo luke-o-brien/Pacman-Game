@@ -5,7 +5,7 @@
   text-align: center;
   margin: 0 auto;
   height: 100vh;
-  animation: startmenufade 3s;
+  animation: startmenufade 1s;
   animation-iteration-count: 1;
 }
 
@@ -130,9 +130,26 @@ img {
 
 /* H O W   T O   P L A Y   P A G E   S T Y L I N G  */
 
-.htp-h2 {
-  font-size: 50px
+
+#htp-page {
+  overflow: scroll;
+  color: #f44236;
 }
+
+h2 {
+  font-size: 500px;
+  padding: 20px;
+}
+
+h3 {
+  font-size: 30px;
+  padding:20px;
+}
+
+ul {
+  padding: 20px;
+}
+
 
 .htp-return:hover {
   background-color: #fcb949;

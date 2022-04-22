@@ -2,16 +2,38 @@
 //! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 //! G A M E   C O D E
 //! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   
-  
 
+
+const main = document.querySelector('main')
+
+function createMenu() {
+  main.innerHTML = `
+  <div class="start-menu">
+  <h1 class="main-title">Pacman</h1>
+  <div class="menu-images">
+    
+    <img src="images/kisspng-pac-man-world-3-ghosts-red-packs-5ae218e46ff980.5320704415247669484587-removebg-preview.png">
+    <img src="images/548-5487219_pac-man-png-pacman-ghost-transparent-background-clipart-removebg-preview (1).png">
+    <img src="images/kisspng-pac-man-world-3-ghosts-clip-art-pac-man-ghost-png-transparent-image-5a7561ae2a7482.6496024615176421581739-removebg-preview.png">
+    <img src="images/imgbin-ms-pac-man-pac-man-world-3-ghosts-pac-man-ghost-from-pacman-VaSTbeXMCuKyP0UE9kP0mYWc9-removebg-preview (1).png">
+  </div>
+  <button class="play-button">Play!</button>
+  <button class="how-to-play">How to play</button>
+  <button class="leaderboard">Leaderboard</button>
+  <button class="github" onclick= "window.open('https://github.com/luke-o-brien/Pacman-Game' ,'_blank')">Github Respository</button>
+</div>`
+}
+
+createMenu()
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // C r e a t i o n   o f   G a m e 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-const main = document.querySelector('main')
 const startButton = document.querySelector('.play-button')
 const howToplay = document.querySelector('.how-to-play')
 const leaderboardButton = document.querySelector('.leaderboard')
+
+
 
 
 startButton.addEventListener('click', () => {
@@ -46,7 +68,7 @@ const layout = [
   'w','w','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','w','w',
   'w','w','w','w','p','w','p','p','p','p','p','p','p','w','p','w','w','w','w',
   'o','o','o','o','p','p','p','w','w','o','w','w','p','p','p','o','o','o','o',
-  'w','w','w','w','p','w','p','w','o','o','o','w','p','w','p','w','w','w','w',
+  'w','w','w','w','p','[]','p','w','o','o','o','w','p','w','p','w','w','w','w',
   'o','o','o','o','p','p','p','w','o','o','o','w','p','p','p','o','o','o','o',
   'w','w','w','w','p','w','o','w','w','w','w','w','p','w','p','w','w','w','w',
   'w','w','w','w','p','w','p','p','p','p','p','p','p','w','p','w','w','w','w',
@@ -162,7 +184,7 @@ function createMap() {
   points = 0
   for (let i = 0; i < layout.length ; i++) {
     const square = document.createElement("div");
-    if (layout[i] === 'w') {
+    if (layout[i] === 'w' || layout[i] === '[]') {
       square.classList = 'wall'
       square.innerHTML = i
       square.id = i
@@ -192,6 +214,7 @@ function createMap() {
   const pointdisplay = document.createElement('p')
   grid.appendChild(pointdisplay)
   pointdisplay.innerHTML = points + ' points'
+  pointdisplay.classList = 'gamePoints'
   spawnPacman()
   spawnGhost()
   ghostMoves()
@@ -351,6 +374,7 @@ function GhostKillsPacman() {
       
     } else if (map[pacmanPosition] === map[charcter.position] && ghostVulnerable === true) {
       deleteGhost(charcter.position)
+      points += 200
       charcter.position = 230
       spawnGhost(charcter.position)
     }
@@ -448,28 +472,33 @@ howToplay.addEventListener('click', () => {
   //window.location.href = 'How-to-play.html'
   main.innerHTML = ''
   const htpPage = document.createElement("div");
-  htpPage.classList = 'htp-page'
+  htpPage.id = 'htp-page'
   main.appendChild(htpPage)
   htpPage.innerHTML = `
-  <h2>How to Play</h2>
+  <h2 class="htp-h2">How to Play</h2>
   <h3>Pacman the Basics</h3>
   <p></p>
   <h3>controls</h3>
   <p> Its simple, which ever direction you want pacman to move click the corrosponding arrow key on your keyboard</p>
+  <p>if you want to pacman to keep moving in the same direction hold down the key </P>
   <ul>
-  
   <li>Move down = down arrow Key</li>
   <li>Move up = Up arrow Key</li>
   <li>Move left = left arrow Key</li>
   <li>Move right = right arrow Key</li>
   </ul>
   <h3>points and more rules</h3>
-  <p>you get points when pacman eats the yellow food pellets which are on the</p>
+  <p>you get points when pacman eats the yellow food pellets which are on the map</p>
+  <ul>
+  <li>Food Pellets = 10 points</li>
+  <li>PowerUp Pellets = 15 Points</li>
+  <li>Eating a ghost = 200</li>
+  </ul>
   <button class="htp-return"> return to home </button>
   `
   console.log(document)
 
-  const returnHomeButton = document.querySelector('#return-home')
+  const returnHomeButton = document.querySelector('.htp-return')
 
   returnHomeButton.addEventListener('click', () => {
     location.reload()
