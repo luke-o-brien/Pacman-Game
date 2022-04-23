@@ -1,9 +1,39 @@
-//! G A M E   C O D E   
+//! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   
+//! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//! G A M E   C O D E
+//! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   
+
 
 const main = document.querySelector('main')
+
+function createMenu() {
+  main.innerHTML = `
+  <div class="start-menu">
+  <h1 class="main-title">Pacman</h1>
+  <div class="menu-images">
+    
+    <img src="images/kisspng-pac-man-world-3-ghosts-red-packs-5ae218e46ff980.5320704415247669484587-removebg-preview.png">
+    <img src="images/548-5487219_pac-man-png-pacman-ghost-transparent-background-clipart-removebg-preview (1).png">
+    <img src="images/kisspng-pac-man-world-3-ghosts-clip-art-pac-man-ghost-png-transparent-image-5a7561ae2a7482.6496024615176421581739-removebg-preview.png">
+    <img src="images/imgbin-ms-pac-man-pac-man-world-3-ghosts-pac-man-ghost-from-pacman-VaSTbeXMCuKyP0UE9kP0mYWc9-removebg-preview (1).png">
+  </div>
+  <button class="play-button">Play!</button>
+  <button class="how-to-play">How to play</button>
+  <button class="leaderboard">Leaderboard</button>
+  <button class="github" onclick= "window.open('https://github.com/luke-o-brien/Pacman-Game' ,'_blank')">Github Respository</button>
+</div>`
+}
+
+createMenu()
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// C r e a t i o n   o f   G a m e 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 const startButton = document.querySelector('.play-button')
 const howToplay = document.querySelector('.how-to-play')
 const leaderboardButton = document.querySelector('.leaderboard')
+
+
 
 
 startButton.addEventListener('click', () => {
@@ -33,18 +63,18 @@ const layout = [
   'w','p','p','p','p','p','p','p','p','w','p','p','p','p','p','p','p','p','w',
   'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w',
   'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w',
-  'w','p','p','p','p','p','p','p','P','P','P','p','p','p','p','p','p','p','w',
+  'w','p','p','p','P','p','p','p','p','p','p','p','p','p','P','p','p','p','w',
   'w','p','w','w','p','w','p','w','w','w','w','w','p','w','p','w','w','p','w',
   'w','p','p','p','p','w','p','p','p','w','p','p','p','w','p','p','p','p','w',
   'w','w','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','w','w',
   'w','w','w','w','p','w','p','p','p','p','p','p','p','w','p','w','w','w','w',
   'o','o','o','o','p','p','p','w','w','o','w','w','p','p','p','o','o','o','o',
-  'w','w','w','w','p','w','p','w','o','o','o','w','p','w','p','w','w','w','w',
+  'w','w','w','w','p','[]','p','w','o','o','o','w','p','w','p','w','w','w','w',
   'o','o','o','o','p','p','p','w','o','o','o','w','p','p','p','o','o','o','o',
   'w','w','w','w','p','w','o','w','w','w','w','w','p','w','p','w','w','w','w',
   'w','w','w','w','p','w','p','p','p','p','p','p','p','w','p','w','w','w','w',
   'w','w','w','w','p','w','p','w','w','w','w','w','p','w','p','w','w','w','w',
-  'w','p','p','p','p','p','p','p','p','w','p','p','p','p','p','p','p','p','w',
+  'w','p','p','p','P','p','p','p','p','w','p','p','p','p','P','p','p','p','w',
   'w','p','w','w','p','w','w','w','p','w','p','w','w','w','p','w','w','p','w',
   'w','p','p','w','p','p','p','p','p','p','p','p','p','p','p','w','p','p','w',
   'w','w','p','w','p','w','p','w','w','w','w','w','p','w','p','w','p','w','w',
@@ -59,9 +89,37 @@ const map = []
 const mapWidth = 19
 const dotArray = []
 
+
+let ghosts = [
+  {
+    "ghost": "blinky",
+    "position": 161 ,
+    "direction": "up",
+    "class": "blinky",
+  },
+  {
+    "ghost": "pinky",
+    "position": 200 ,
+    "direction": "left",
+    "class": "pinky",
+  },
+  {
+    "ghost": "inky",
+    "position": 218 ,
+    "direction": "right",
+    "class": "inky",
+  },
+  {
+    "ghost": "clyde",
+    "position": 198,
+    "direction": "down",
+    "class": "clyde",
+  }]
+
+
 //Initial position of characters
-let pacmanPosition = 349;
-let ghostposition = 169;
+let pacmanPosition = 256;
+
 let points = 0;
 let totalPoints = 0
 let ghostVulnerable = false
@@ -86,23 +144,38 @@ function deletePacman() {
 }
 
 //Ghost Spawn and Delete Functions
+//array of 4 object with all needed variables 
 function spawnGhost() {
-  const ghostspawnSquare = document.getElementById(ghostposition)
-  const createGhost = document.createElement("div")
-  createGhost.id = 'ghost'
-  if (ghostVulnerable === true) {
-    createGhost.classList = 'ghost-vulnerable'
-  } else if (ghostVulnerable === false) {
-    createGhost.classList = 'ghost' 
-  }
-  ghostspawnSquare.appendChild(createGhost)
+  ghosts.forEach(charcter => {
+    const ghostSpawnSquare = document.getElementById(charcter.position)
+    const createGhost = document.createElement("div")
+    createGhost.id = charcter.ghost
+    if (ghostVulnerable === true) {
+      createGhost.classList = 'ghost-vulnerable'
+    } else if (ghostVulnerable === false) {
+      createGhost.classList = charcter.class
+    }
+    ghostSpawnSquare.appendChild(createGhost)
+  });
+  
+  // const createGhost = document.createElement("div")
+  // createGhost.id = 'ghost'
+  // createGhost.classList = 'ghost' 
+  // ghostspawnSquare.appendChild(createGhost)
 }
 
+
 function deleteGhost() {
-  const deleteGhostSquare = document.getElementById(ghostposition)
-  const ghostremoval = deleteGhostSquare.querySelector('#ghost')
-  deleteGhostSquare.removeChild(ghostremoval)
+  ghosts.forEach(charcter => {
+    //console.log(charcter.position)
+    const deleteGhostSquare = document.getElementById(charcter.position)
+    console.log(deleteGhostSquare)
+    const ghostremoval = document.getElementById(charcter.ghost)
+    //console.log(ghostremoval)
+    deleteGhostSquare.removeChild(ghostremoval)
+  })
 }
+
 
 
 // Map Creation Function 
@@ -112,7 +185,7 @@ function createMap() {
   points = 0
   for (let i = 0; i < layout.length ; i++) {
     const square = document.createElement("div");
-    if (layout[i] === 'w') {
+    if (layout[i] === 'w' || layout[i] === '[]') {
       square.classList = 'wall'
       square.innerHTML = i
       square.id = i
@@ -142,11 +215,19 @@ function createMap() {
   const pointdisplay = document.createElement('p')
   grid.appendChild(pointdisplay)
   pointdisplay.innerHTML = points + ' points'
+  pointdisplay.classList = 'gamePoints'
   spawnPacman()
   spawnGhost()
   ghostMoves()
 }
 
+
+
+
+
+
+
+//! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Pacman Keypress Movement function 
 
 document.addEventListener('keydown', (e) => {
@@ -174,31 +255,35 @@ document.addEventListener('keydown', (e) => {
 console.log(document)
 
 //Basic Randomized Ghost Movement
-
+//for each loop on array of ghosts 
 function ghostMoves() {
   setInterval(() => {
     const ghostOptions = ['up', 'down', 'left', 'right']
-    const ghostChoice =  ghostOptions[Math.floor(Math.random() * ghostOptions.length)]
-    if (ghostChoice === 'right' && map[ghostposition + 1].classList.contains('path')) {
-      deleteGhost(ghostposition)
-      ghostposition += 1 
-      spawnGhost(ghostposition)
-    } else if ( ghostChoice === 'down' && map[ghostposition + mapWidth].classList.contains('path')) {
-      deleteGhost(ghostposition)
-      ghostposition += mapWidth
-      spawnGhost(ghostposition)
-    } else if ( ghostChoice === 'left' && map[ghostposition - 1].classList.contains('path')) {
-      deleteGhost(ghostposition)
-      ghostposition -= 1
-      spawnGhost(ghostposition)
-    } else if ( ghostChoice === 'up' && map[ghostposition - mapWidth].classList.contains('path')) {
-      deleteGhost(ghostposition)
-      ghostposition -= mapWidth
-      spawnGhost(ghostposition)
-    }
-    GhostKillsPacman()
-  }, 500)
+    ghosts.forEach(charcter => {
+      
+      const ghostChoice =  ghostOptions[Math.floor(Math.random() * ghostOptions.length)]
+      //console.log(ghostChoice)
+      if (ghostChoice === 'right' && map[charcter.position + 1].classList.contains('path')) {
+        deleteGhost(charcter.position)
+        charcter.position += 1 
+        spawnGhost(charcter.position)
+      } else if ( ghostChoice === 'down' && map[charcter.position + mapWidth].classList.contains('path')) {
+        deleteGhost(charcter.position)
+        charcter.position += mapWidth
+        spawnGhost(charcter.position)
+      } else if ( ghostChoice === 'left' && map[charcter.position - 1].classList.contains('path')) {
+        deleteGhost(charcter.position)
+        charcter.position  -= 1
+        spawnGhost(charcter.position)
+      } else if ( ghostChoice === 'up' && map[charcter.position - mapWidth].classList.contains('path')) {
+        deleteGhost(charcter.position)
+        charcter.position  -= mapWidth
+        spawnGhost(charcter.position)
+      }
+    });
+  }, 2000)
 }
+
 
 //Pacman eats Dots 
 
@@ -246,52 +331,58 @@ function vulnerableGhosts() {
 }
 
 // ghost and pacman meet ending the game and displaying points and option to restart game 
+//pass as an argument ghost position
 function GhostKillsPacman() {
-  if (map[pacmanPosition] === map[ghostposition] && ghostVulnerable === false) {
-    pacmanPosition = 349
-    totalPoints = points
-    console.log(totalPoints)
-  
-    main.innerHTML = ''
-    const gameOver = document.createElement("div");
-    main.appendChild(gameOver)
-    gameOver.classList.add('game-over')
-    const results = document.createElement('p')
-    results.innerHTML = 'Better Luck next time'
-    results.classList.add('results')
-
-    const finalPoints = document.createElement('p')
-    finalPoints.innerHTML = points + ' points'
-    finalPoints.classList.add('final-points')
-  
-  
-    const replay = document.createElement('button')
-    replay.innerHTML = 'click to replay'
-    replay.classList.add('replay-button')
-
-    gameOver.appendChild(results)
-    gameOver.appendChild(finalPoints)
-    gameOver.appendChild(replay)
-
-
-    const replayButton = document.querySelector('.replay-button')
-
-    replayButton.addEventListener('click', () => {
-      console.log('replay clicked')
-
+  ghosts.forEach(charcter => {
+    if (map[pacmanPosition] === map[charcter.position] && ghostVulnerable === false) {
+      pacmanPosition = 349
+      totalPoints = points
+      console.log(totalPoints)
+    
       main.innerHTML = ''
+      const gameOver = document.createElement("div");
+      main.appendChild(gameOver)
+      gameOver.classList.add('game-over')
+      const results = document.createElement('p')
+      results.innerHTML = 'Better Luck next time'
+      results.classList.add('results')
+  
+      const finalPoints = document.createElement('p')
+      finalPoints.innerHTML = points + ' points'
+      finalPoints.classList.add('final-points')
     
-      console.log(document)
-      createlayout()
-    })
-    collectScores()
     
-  } else if (map[pacmanPosition] === map[ghostposition] && ghostVulnerable === true) {
-    deleteGhost(ghostposition)
-    ghostposition = 230
-    spawnGhost(ghostposition)
-  }
+      const replay = document.createElement('button')
+      replay.innerHTML = 'click to replay'
+      replay.classList.add('replay-button')
+  
+      gameOver.appendChild(results)
+      gameOver.appendChild(finalPoints)
+      gameOver.appendChild(replay)
+  
+  
+      const replayButton = document.querySelector('.replay-button')
+  
+      replayButton.addEventListener('click', () => {
+        console.log('replay clicked')
+  
+        main.innerHTML = ''
+      
+        console.log(document)
+        createlayout()
+      })
+      collectScores()
+      
+    } else if (map[pacmanPosition] === map[charcter.position] && ghostVulnerable === true) {
+      deleteGhost(charcter.position)
+      points += 200
+      charcter.position = 230
+      spawnGhost(charcter.position)
+    }
+  })
 }
+
+  
 
 //Game is won 
 
@@ -352,8 +443,9 @@ function displayScore() {
   scoresList.innerHTML = array.join('')
 }
 
-
+//! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - -
 //! C O D E    F O R    O T H E R    M E N U    P A G E S //
+//! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - -
 
 //code to generate Leaderboard
 
@@ -365,44 +457,49 @@ leaderboardButton.addEventListener('click', () => {
       <div class=Leaderboard>
       <ol></ol>
       </div>
-    <button>return to home</button>
+    <button class="leaderboard-return">return to home</button>
   </div>`
   displayScore()
 })
 
 // c o d e    f o r   L e a d e r B o a r d 
 
-leaderboardButton.addEventListener('click', () => {
-  console.log('view leaderboard')
-})
 
-//code to generate how to play plage
+
+//c o d e   t o   g e n e r a t e   h o w   t o   p l a y   p l a g e
+
 howToplay.addEventListener('click', () => {
   //console.log('how to play clicked')
   //window.location.href = 'How-to-play.html'
   main.innerHTML = ''
   const htpPage = document.createElement("div");
-  htpPage.classList = 'htp-page'
+  htpPage.id = 'htp-page'
   main.appendChild(htpPage)
   htpPage.innerHTML = `
-  <h2>How to Play</h2>
+  <h2 class="htp-h2">How to Play</h2>
   <h3>Pacman the Basics</h3>
   <p></p>
   <h3>controls</h3>
   <p> Its simple, which ever direction you want pacman to move click the corrosponding arrow key on your keyboard</p>
+  <p>if you want to pacman to keep moving in the same direction hold down the key </P>
   <ul>
-  <li>Move up = Up arrow Key<li>
   <li>Move down = down arrow Key</li>
+  <li>Move up = Up arrow Key</li>
   <li>Move left = left arrow Key</li>
   <li>Move right = right arrow Key</li>
   </ul>
   <h3>points and more rules</h3>
-  <p>you get points when pacman eats the yellow food pellets which are on the</p>
-  <button id="return-home"> return to home </button>
+  <p>you get points when pacman eats the yellow food pellets which are on the map</p>
+  <ul>
+  <li>Food Pellets = 10 points</li>
+  <li>PowerUp Pellets = 15 Points</li>
+  <li>Eating a ghost = 200</li>
+  </ul>
+  <button class="htp-return"> return to home </button>
   `
   console.log(document)
 
-  const returnHomeButton = document.querySelector('#return-home')
+  const returnHomeButton = document.querySelector('.htp-return')
 
   returnHomeButton.addEventListener('click', () => {
     location.reload()
