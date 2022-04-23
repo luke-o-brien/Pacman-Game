@@ -1,7 +1,4 @@
-//! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   
-//! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-//! G A M E   C O D E
-//! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   
+// C r e a t i o n   o f   m a p   l a y o u t  
 
 const layout = [
   'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
@@ -12,12 +9,12 @@ const layout = [
   'w', 'p', 'w', 'w', 'p', 'w', 'p', 'w', 'w', 'w', 'w', 'w', 'p', 'w', 'p', 'w', 'w', 'P', 'w',
   'w', 'p', 'p', 'p', 'p', 'w', 'p', 'p', 'p', 'w', 'p', 'p', 'p', 'w', 'p', 'p', 'p', 'p', 'w',
   'w', 'w', 'w', 'w', 'p', 'w', 'w', 'w', 'p', 'w', 'p', 'w', 'w', 'w', 'p', 'w', 'w', 'w', 'w',
-  'w', 'w', 'w', 'w', 'p', 'w', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'w', 'p', 'w', 'w', 'w', 'w',
-  'o', 'o', 'o', 'o', 'p', 'p', 'p', 'w', 'w', 'o', 'w', 'w', 'p', 'p', 'p', 'o', 'o', 'o', 'o',
-  'w', 'w', 'w', 'w', 'p', 'w', 'p', 'w', 'o', 'o', 'o', 'w', 'p', 'w', 'p', 'w', 'w', 'w', 'w',
-  'o', 'o', 'o', 'o', 'p', 'p', 'p', 'w', 'o', 'o', 'o', 'w', 'p', 'p', 'p', 'o', 'o', 'o', 'o',
-  'w', 'w', 'w', 'w', 'p', 'w', 'o', 'w', 'w', 'w', 'w', 'w', 'p', 'w', 'p', 'w', 'w', 'w', 'w',
-  'w', 'w', 'w', 'w', 'p', 'w', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'w', 'p', 'w', 'w', 'w', 'w',
+  'w', 'w', 'w', 'w', 'p', 'w', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'w', 'p', 'w', 'w', 'w', 'w',
+  'o', 'o', 'o', 'o', 'p', 'p', 'o', 'w', 'd', 'd', 'd', 'w', 'o', 'p', 'p', 'o', 'o', 'o', 'o',
+  'w', 'w', 'w', 'w', 'p', 'w', 'o', 'w', 'o', 'o', 'o', 'w', 'o', 'w', 'p', 'w', 'w', 'w', 'w',
+  'o', 'o', 'o', 'o', 'p', 'p', 'o', 'w', 'o', 'o', 'o', 'w', 'o', 'p', 'p', 'o', 'o', 'o', 'o',
+  'w', 'w', 'w', 'w', 'p', 'w', 'o', 'w', 'w', 'w', 'w', 'w', 'o', 'w', 'p', 'w', 'w', 'w', 'w',
+  'w', 'w', 'w', 'w', 'p', 'w', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'w', 'p', 'w', 'w', 'w', 'w',
   'w', 'w', 'w', 'w', 'p', 'w', 'p', 'w', 'w', 'w', 'w', 'w', 'p', 'w', 'p', 'w', 'w', 'w', 'w',
   'w', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'w', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'w',
   'w', 'p', 'w', 'w', 'p', 'w', 'w', 'w', 'p', 'w', 'p', 'w', 'w', 'w', 'p', 'w', 'w', 'p', 'w',
@@ -134,7 +131,7 @@ function options() {
     <div class="preview">
     </div>
     </form>
-  <button class="optionsPlayButton">Play Game</button>
+  <button class="optionsPlayButton">Play Game!</button>
   <p class="result"></p>
   `
   const optionsPlayButton = document.querySelector(".optionsPlayButton")
@@ -213,8 +210,11 @@ function createlayout() {
 }
 
 
-// C r e a t i o n   o f   m a p   l a y o u t 
 
+//! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   
+//! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//! G A M E   C O D E
+//! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   
 
 
 let ghosts = [
@@ -329,6 +329,15 @@ function createMap() {
       } else if (selectedTheme === "retro") {
         square.classList = 'wall-retro'
       }
+    } else if (layout[i] === 'd') {
+      square.id = i
+      grid.appendChild(square)
+      map.push(square)
+      if (selectedTheme === "minimalist") {
+        square.classList = 'door'
+      } else if (selectedTheme === "retro") {
+        square.classList = 'door-retro'
+      }
     } else if (layout[i] === 'p' || layout[i] === 'P' || layout[i] === 'o') {
       if (selectedTheme === "minimalist") {
         square.classList = 'path'
@@ -368,7 +377,11 @@ function createMap() {
   const pointdisplay = document.createElement('p')
   grid.appendChild(pointdisplay)
   pointdisplay.innerHTML = points + ' points'
-  pointdisplay.classList = 'gamePoints'
+  if (selectedTheme === 'minimalist'){
+    pointdisplay.classList = 'gamePoints'
+  } else if (selectedTheme === 'retro') {
+    pointdisplay.classList = 'gamePoints-retro'
+  }
   spawnPacman()
   spawnGhost()
   ghostMoves()
@@ -390,7 +403,7 @@ function createMapGiant() {
       } else if (selectedTheme === "retro") {
         square.classList = 'wall-retro'
       }
-    } else if (layoutGiant[i] === 'p' || layoutGiant[i] === 'P' || layoutGiant[i] === 'o') {
+    } else if (layoutGiant[i] === 'p' || layoutGiant[i] === 'P' || layoutGiant[i] === 'o' || layoutGiant[i] === 'd') {
       if (selectedTheme === "minimalist") {
         square.classList = 'path'
       } else if (selectedTheme === "retro") {
@@ -448,7 +461,7 @@ document.addEventListener('keydown', (e) => {
     deletePacman(pacmanPosition)
     pacmanPosition -= 18
     spawnPacman(pacmanPosition)
-  } else if (key === 'ArrowLeft' && pacmanPosition === 171 || key === 'ArrowRight' && pacmanPosition === 209){
+  } else if (key === 'ArrowLeft' && pacmanPosition === 171 || key === 'ArrowLeft' && pacmanPosition === 209){
     console.log('portal')
     deletePacman(pacmanPosition)
     pacmanPosition += 18
@@ -488,7 +501,7 @@ function ghostMoves() {
         deleteGhost(charcter.position)
         charcter.position += 1
         spawnGhost(charcter.position)
-      } else if (ghostChoice === 'down' && map[charcter.position + mapWidth].classList.contains('path') && map[charcter.position + mapWidth] !== 180 || ghostChoice === 'down' && map[charcter.position + mapWidth].classList.contains('path-retro') ) {
+      } else if (ghostChoice === 'down' && map[charcter.position + mapWidth].classList.contains('path') || ghostChoice === 'down' && map[charcter.position + mapWidth].classList.contains('path-retro')) {
         deleteGhost(charcter.position)
         charcter.position += mapWidth
         spawnGhost(charcter.position)
@@ -496,13 +509,14 @@ function ghostMoves() {
         deleteGhost(charcter.position)
         charcter.position -= 1
         spawnGhost(charcter.position)
-      } else if (ghostChoice === 'up' && map[charcter.position - mapWidth].classList.contains('path') || ghostChoice === 'up' && map[charcter.position - mapWidth].classList.contains('path-retro')) {
+      } else if (ghostChoice === 'up' && map[charcter.position - mapWidth].classList.contains('path') || ghostChoice === 'up' && map[charcter.position - mapWidth].classList.contains('path-retro') || ghostChoice === 'up' && map[charcter.position - mapWidth].classList.contains('door-retro') || ghostChoice === 'up' && map[charcter.position - mapWidth].classList.contains('door')) {
         deleteGhost(charcter.position)
         charcter.position -= mapWidth
         spawnGhost(charcter.position)
       }
+      GhostKillsPacman()
     });
-  }, 1000)
+  }, 500)
 }
 
 
@@ -532,7 +546,6 @@ function pacmanEats() {
       vulnerableGhosts()
       console.log(ghostVulnerable)
       if (dotArray.length === 0) {
-        console.log('you have won')
         WinnerScreen()
       }
     } else if (map[pacmanPosition].children[0].id === null) {
@@ -584,7 +597,7 @@ function vulnerableGhosts() {
 //pass as an argument ghost position
 function GhostKillsPacman() {
   ghosts.forEach(charcter => {
-    if (map[pacmanPosition] === map[charcter.position] && ghostVulnerable === false) {
+    if ( map[charcter.position] === map[pacmanPosition] && ghostVulnerable === false) {
       pacmanPosition = 349
       totalPoints = points
       console.log(totalPoints)
@@ -603,7 +616,7 @@ function GhostKillsPacman() {
 
 
       const replay = document.createElement('button')
-      replay.innerHTML = 'click to replay'
+      replay.innerHTML = 'return to Main Menu'
       replay.classList.add('replay-button')
 
       gameOver.appendChild(results)
@@ -615,18 +628,14 @@ function GhostKillsPacman() {
 
       replayButton.addEventListener('click', () => {
         console.log('replay clicked')
-
-        main.innerHTML = ''
-
-        console.log(document)
-        createlayout()
+        location.reload()
       })
       collectScores()
 
     } else if (map[pacmanPosition] === map[charcter.position] && ghostVulnerable === true) {
       deleteGhost(charcter.position)
       points += 200
-      charcter.position = 230
+      charcter.position = 200
       spawnGhost(charcter.position)
     }
   })
@@ -654,7 +663,7 @@ function WinnerScreen() {
 
 
   const replay = document.createElement('button')
-  replay.innerHTML = 'click to replay'
+  replay.innerHTML = 'Return to Main Menu'
   replay.classList.add('replay-button')
 
   gameOver.appendChild(results)

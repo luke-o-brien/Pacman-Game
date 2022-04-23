@@ -127,7 +127,12 @@ img {
   }
 }
 
-/* options page CSS */
+/* O P T I O N   P A G E   S T Y L I N G  */
+
+.optionsPlayButton:hover {
+  background-color: #f44236;
+  color: #ffffff;
+}
 
 .no-click-error {
   color: #f44236;
@@ -144,6 +149,7 @@ label {
   height: 300px
 }
 input
+
 /* H O W   T O   P L A Y   P A G E   S T Y L I N G  */
 
 
