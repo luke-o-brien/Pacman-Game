@@ -127,7 +127,23 @@ img {
   }
 }
 
+/* options page CSS */
 
+.no-click-error {
+  color: #f44236;
+  font-size: 20px;
+}
+
+label {
+  font-size: 25px;
+  padding: 10px;
+}
+
+.preview-map-img {
+  margin: auto;
+  height: 300px
+}
+input
 /* H O W   T O   P L A Y   P A G E   S T Y L I N G  */
 
 
@@ -137,20 +153,36 @@ img {
 }
 
 h2 {
-  font-size: 500px;
+  font-size: 50px;
   padding: 20px;
 }
 
 h3 {
-  font-size: 30px;
+  font-size: 35px;
   padding:20px;
 }
+
+p {
+  display: block;
+  font-size: 20px;
+} 
 
 ul {
   padding: 20px;
 }
 
+li {
+  font-size: 20px;
+}
 
+.htp-return {
+  font-size: 50px;
+  margin: 10px;
+  letter-spacing: 5px;
+  font-weight: 400;
+  padding: 10px 20px;
+  width: 40%;
+}
 .htp-return:hover {
   background-color: #fcb949;
   color: white;
@@ -159,4 +191,17 @@ ul {
 .leaderboard-return:hover {
   background-color: #ff0066;
   color: white;
+}
+
+.ghost-list {
+  margin: auto;
+  height: 50px;
+}
+
+.character-list{
+  display: flex;
+  justify-content: center;
+}
+.character-list-item {
+  margin: 5px 20px;
 }
