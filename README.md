@@ -2,8 +2,7 @@
 # Pacman Game
 
 ### Project overview 
-
-This project involved creating a Pacman style game that displayed in the browser and was playable on desktop devices.  
+This was my first sizable coding project. Built using HTML, CSS and JavaScript, this is a grid-based Pacman game which allows users to control Pacman using keyboard inputs to collect pellets which add to to user score. The ghost have the ability to kill Pacman ending the game. Pacman is also able to kill the ghosts when they are vulnerable. The game includes a leaderboard created using local storage as well as a theme and map size selector, which is chosen by the user before the game begins.
 
 
 ### Technologies used 
@@ -13,11 +12,17 @@ This project involved creating a Pacman style game that displayed in the browser
 
 
 ### Planning and whiteboarding 
+Once I had selected Pacman as the game I would make, I spent some time thinking about the functionality I would like the site to have as well as how I wanted it to look. Once I had a basic layout and features in mind I began the process of whiteboarding. I thought carefully about each element of the game's functionality and which steps would need to be taken to get each step working. As this was my first sizable coding project I wanted to be sure that I understood the logic behind each feature and how I could implement this logic in code. I spent some time writing pseudo code for various elements that would help me when coding the project.
+
+The final step in the planning process was working out a project timeline and setting a target date for a working MVP project. Once this was established I made a list of stretch goals which I could implement once this MVP was working. 
 
 
-### Challenge one - Ghost Movements
+<img src="images/screenshots/Untitled-2022-05-18-1629.excalidraw.png" position/></img>
 
-One of the major challenges in creating this project was getting the ghost movement working. Initially I created a simple function to get one ghost movement before later scaling it up. In the initial build the ghost was details were contained in seperate lets and constants however when adding more ghosts it was nessary to change so there was not unnessary repition of code. To achieve this I placed all of the needed details and variables in an array of objects which could be easily accessed in future functions. the variable was assigned let so that values such as position could be updated as needed. 
+
+### Ghost Movements
+
+One of the major challenges in creating this project was getting the ghost movement working. Initially I created a simple function to get one ghost movement before later scaling it up. In the initial build the ghost details were contained in separate lets and constants however when adding more ghosts it was necessary to change so there was not necessary repetition of code. To achieve this I placed all of the needed details and variables in an array of objects which could be easily accessed in future functions. the variable was assigned so that values such as position could be updated as needed. 
 
 ```js
     let ghosts = [
@@ -47,7 +52,7 @@ One of the major challenges in creating this project was getting the ghost movem
   }]
 ```
 
-The next step was to create the ghosts and get create a function to delete them when the move between squares. to do this I made the ghosts empty divs as assigned CSS classes to which gave them there appearance. The divs were appended as children to the square which the ghostposition index matched. When scaling this function up to take into account multiple ghosts i wrapped the function in a for each loop to iterate over the ghost object in the array and carry out the function for each. An if statement was added to toggle the class of the ghosts when the were in the vulnerable state.
+The next step was to create the ghosts and create a function to delete them when they move between squares. To do this I made the ghosts empty divs as assigned CSS classes to which gave them their appearance. The divs were appended as children to the square which the ghost position index matched. When scaling this function up to take into account multiple ghosts i wrapped the function in a for each loop to iterate over the ghost object in the array and carry out the function for each. An if statement was added to toggle the class of the ghosts when they were in the vulnerable state.
 
 
 ```js
@@ -74,7 +79,8 @@ function spawnGhost() {
 ```
 
 
-To get the ghosts to move on their own I created a setInterval function which would occur every 0.5s. Like the spawn function this was also wrapped in an foreach loop to apply to all ghosts. The ghosts in this inital build move randomly. To get this working i created an array of potential directions and set the function up to return a random direction from the array. I then used a chain of if statements to determine if it was permissable for the ghost to move in that direction by checking the class of the square. if it is permissable then using the function above the ghost was removed the index position of the ghost was changed and the ghost respawn. At the end of the movement to ghostKillsPacman function was triggered to check if pacman and the ghost were at the same index.
+To get the ghosts to move on their own I created a setInterval function which would occur every 0.5s. Like the spawn function this was also wrapped in a foreach loop to apply to all ghosts. The ghosts in this initial build move randomly. To get this working I created an array of potential directions and set the function up to return a random direction from the array. I then used a chain of if statements to determine if it was permissible for the ghost to move in that direction by checking the class of the square. if it is permissible then using the function above the ghost was removed the index position of the ghost was changed and the ghost respawn. At the end of the movement to ghostKillsPacman function was triggered to check if pacman and the ghost were at the same index.
+
 
 ```js 
 function ghostMoves() {
@@ -104,17 +110,28 @@ function ghostMoves() {
   }, 500)
 }
 ```
-
 ### Menu and UI 
 
-I created a main menu which the game would load to containing two other pages a how to play page with instructions and a leaderboard page which used local storage to display the highscores of the person who had been playing the game. Each page was created dynamically with pure javascript to give the game a once page app feel. For the design i decided to keep it simple and clean with a white loading page, large readable font and accent colours which matched that of the ghosts.
+I created a main menu which would display when the user opened up the site. I created four buttons one would take the user through to start the game. The second opened up a how to play page with instructions, the third opened up a leaderboard page which used local storage to display the highscores of the person who had been playing the game. The final button linked to this github repo. Each page was created dynamically with pure javascript to give the game a one page app feel. For the design I decided to keep it simple and clean with a white loading page, large readable font and accent colours which matched that of the ghosts.
 
-In addition to the main menu I created a game settings page under the playgame menu item whern player can customise the game theme and grid size of the game using radio buttons I created a preview div to show the player what the game would look like.  
+In addition to the main menu I created a game settings page under the playgame menu item where the player can customise the game theme and grid size of the game using radio buttons. I created a preview image to show the player what the game would look like. It was not part of my MVP goal to make the site responsive, however the menu pages are responsive and I began to work on responsive display of the game pages however I was not able to complete this stretch goal in the allotted project time.   
+
+
+
+
+### Project Screenshots 
+<img src="images/screenshots/Screenshot 2022-07-26 at 00.07.12.png" position/></img>
+<img src="images/screenshots/Screenshot 2022-07-26 at 00.05.24.png"  width=49.5% position/></img>
+<img src="images/screenshots/Screenshot 2022-07-26 at 00.05.43.png"  width=49.5% position/></img>
+<img src="images/screenshots/Screenshot 2022-07-26 at 00.06.32.png"  width=49.5% position/></img>
+<img src="images/screenshots/Screenshot 2022-07-26 at 00.06.48.png"  width=49.5% position/></img>
+
 
 ### Future development
 
-The main development I would like to implement is smart ghost movements. currently the ghosts move around randomly which however i would like to rewrite the code to get the ghost to more accuratly mimic the ghost behaviour from the real game making the game both more challenging for the player.
+The main development I would like to implement is smart ghost movements. Currently the ghosts move around randomly which however I would like to rewrite the code to get the ghost to more accurately mimic the ghost behaviour from the real game making the game both more challenging for the player.
 
-I would also like to work on making the code itself more concise and reable by going through and finding new more efficient ways of writing the code to reduce repition and make it easier to understand change and maintain. 
+I would also like to work on making the code itself more concise and readable by going through and finding new more efficient ways of writing the code to reduce repetition and make it easier to understand, change and maintain. 
 
 The final development I would like to implement is the creation of a mobile playable version including onscreen buttons.
+
