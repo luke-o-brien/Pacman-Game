@@ -53,9 +53,9 @@ const layoutGiant = [
   'w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w'
 ]
 
-const map = []
+let map = []
 
-const dotArray = []
+let dotArray = []
 
 
 //window.onload = function() {
@@ -256,6 +256,9 @@ let gameLive = false
 
 
 
+
+
+
 function SpawnPacmanInitGiant () {
   pacmanPosition = pacmanPositionGiant
   const spawnSquare = document.getElementById(pacmanPositionGiant)
@@ -450,8 +453,6 @@ function createMapGiant() {
 
 
 
-
-//! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Pacman Keypress Movement function 
 
 document.addEventListener('keydown', (e) => {
@@ -494,9 +495,7 @@ function ghostMoves() {
   setInterval(() => {
     const ghostOptions = ['up', 'down', 'left', 'right']
     ghosts.forEach(charcter => {
-
       const ghostChoice = ghostOptions[Math.floor(Math.random() * ghostOptions.length)]
-
       if (ghostChoice === 'right' && map[charcter.position + 1].classList.contains('path') || ghostChoice === 'right' && map[charcter.position + 1].classList.contains('path-retro')) {
         deleteGhost(charcter.position)
         charcter.position += 1
@@ -600,7 +599,6 @@ function GhostKillsPacman() {
     if ( map[charcter.position] === map[pacmanPosition] && ghostVulnerable === false) {
       pacmanPosition = 349
       totalPoints = points
-      console.log(totalPoints)
 
       main.innerHTML = ''
       const gameOver = document.createElement("div");
@@ -628,7 +626,10 @@ function GhostKillsPacman() {
 
       replayButton.addEventListener('click', () => {
         console.log('replay clicked')
-        location.reload()
+        main.innerHTML = ''
+        map = []
+        dotArray = []
+        createlayout()
       })
       collectScores()
 
