@@ -20,7 +20,29 @@ The final step in the planning process was working out a project timeline and se
 <img src="images/screenshots/Untitled-2022-05-18-1629.excalidraw.png" position/></img>
 
 
-### Ghost Movements
+### Workflow 
+
+The timeline I had come up with during the planning stages of the project split the timeline into three sections. 
+
+#### planning - days 1 - 3
+I decided to spend the first 3 days planning. As this was my first sizeable coding project I decided that planning was impprtant and was worth spending a significant amout of time on ensure I felt comfortable with the project and that I had a grasp of the main functionalities I needed to create. 
+
+#### MVP - days 3 - 13
+The mvp stage of the project would take up the remaining part of the first two weeks. In this stage I set out to get the basic functionalities of the game working correctly and get the game to a stage where it was both playable and functional. I started by creating and rendering the game map using an array of strings each one represented a type of square, I then wrote a function which mapped through this and rendered a grid which would be used to determine movements later on in the project.
+
+The second stage was to get the Pacman and ghost moving around the board. I started working on the ghost movement and a explanation of how I got this working can be found below. I then moved on to getting Pacman moving in response to user keyboard inputs. The process getting these working as expected took around 2 days.
+
+Following on from this I focused on getting some of the more advanced elements of the MVP working these being the eating of pellets ghost killing pacman and the ghosts becoming vulnerable with the ability to be eaten by Pacman. This took around 5 days to get working correctly. 
+
+The remaining time of the MVP segment was spent refactoring code to add additional ghosts into the game and get them moving correctly.
+
+### styling and stretch goals - days 14 - 20 
+The last week of the project I spent styling and working on the stretch goals I had set out earlier. 
+I had applied some basic styling to the game during the past two weeeks howvever this was basic and I wanted to make it look more polished and closer to the real life version. 
+
+During this last week I also tried to work on some stretch goals. One of these were smart ghost movements. I reasearch ways which I would be able to get the ghosts to know where on the board Pacman was and then move towards him. I spent some time research different ways of doing this using a number of online resources such as blogs and stackoverflow threads. This was really useful and I was able to gain a good grasp on the logic which would need to be implemented in order to get this feature to work. Unfortunetly Implementing this in the code was trickier than I had anticipated and despite attempting this, time was running short and I decided to not implement this in the final product and instead to focus on other stretch goals. I spent the remaining few days adding in the landing page and other pages as well as polishing the product and adding additional styling.
+
+### Featured code - Ghost Movements
 
 One of the major challenges in creating this project was getting the ghost movement working. Initially I created a simple function to get one ghost movement before later scaling it up. In the initial build the ghost details were contained in separate lets and constants however when adding more ghosts it was necessary to change so there was not necessary repetition of code. To achieve this I placed all of the needed details and variables in an array of objects which could be easily accessed in future functions. the variable was assigned so that values such as position could be updated as needed. 
 
@@ -125,6 +147,20 @@ In addition to the main menu I created a game settings page under the playgame m
 <img src="images/screenshots/Screenshot 2022-07-26 at 00.05.43.png"  width=49.5% position/></img>
 <img src="images/screenshots/Screenshot 2022-07-26 at 00.06.32.png"  width=49.5% position/></img>
 <img src="images/screenshots/Screenshot 2022-07-26 at 00.06.48.png"  width=49.5% position/></img>
+
+### Wins 
+
+* I was able to create a working Pacman game which included all of the basic functionality of the game of pacman 
+* A game was created along with a menue instructional pages and leaderboard all with a clean UI.
+
+### Lessons Learnt 
+
+* Don't assume that code scales up easily. Once I had one ghost moving the way I wanted I assumed that the rest would be simple to code and left it as a task for later and worked on other functionality instead. This was a mistake as getting multiple ghosts working simultainiusly was a lot trickier than i had anticipated which resulted in missing my personal MVP target due to still needing to get the ghost movement functionality working. In future I will ensure that I work on one feature at a time and refactor my code as I go rather than waiting to later. 
+
+### Bugs 
+* Once the game has ended clicking on the return to menue button does not work, it restarts the game and i would need to work on redirecting this to the main page using the window.reload() functionality 
+* when the page is resized some of the responsive functionality does not work correctly with the game map being distorted. In addition on the menue pages.
+* clicking on back buttons in the menue pages reloads the page instead of navigating backwards in the same one page format that I planned to correct this I would rewrite the menue in react which is something that we had not studied in the firts module. 
 
 
 ### Future development
