@@ -1,5 +1,6 @@
 ## ![GA](https://cloud.githubusercontent.com/assets/40461/8183776/469f976e-1432-11e5-8199-6ac91363302b.png) General Assembly, Software Engineering Immersive
 # Pacman Game
+Link to project https://luke-o-brien.github.io/Pacman-Game/
 
 ### Project overview 
 This was my first sizable coding project. Built using HTML, CSS and JavaScript, this is a grid-based Pacman game which allows users to control Pacman using keyboard inputs to collect pellets which add to to user score. The ghost have the ability to kill Pacman ending the game. Pacman is also able to kill the ghosts when they are vulnerable. The game includes a leaderboard created using local storage as well as a theme and map size selector, which is chosen by the user before the game begins.
