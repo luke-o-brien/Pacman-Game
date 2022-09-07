@@ -151,8 +151,12 @@ In addition to the main menu I created a game settings page under the playgame m
 
 ### Wins 
 
-* I was able to create a working Pacman game which included all of the basic functionality of the game of pacman 
-* A game was created along with a menue instructional pages and leaderboard all with a clean UI.
+
+* I’m I was able to create a working Pacman game which included all of the functionality of a pacman game that included ghost movements, ghost vulnerability, Pacman vulnerability, point scoring and the ability to win the game.
+* Along with the working game a full web app was created along with a menu with links to an instructional page and a page to view the leaderboard all with a clean UI.
+* Used local storage to create a leaderboard which allowed users to input their names at the end of the game and then save their score in a scoreboard which sorted the scores from low to high. 
+* Wrote a single function which could render different map sizes and themes depending on what options the user selected before beginning the game. 
+
 
 ### Lessons Learnt 
 
